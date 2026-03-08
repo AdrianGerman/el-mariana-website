@@ -1,6 +1,7 @@
 import ChannelSection from "./components/ChannelSection"
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
+import SocialLinks from "./components/SocialLinks"
 import StatsBar from "./components/StatsBar"
 import { CHANNELS } from "./constants/data"
 
@@ -18,6 +19,8 @@ function App() {
           <ChannelSection key={channel.id} channel={channel} index={i} />
         ))}
       </main>
+
+      <SocialLinks />
     </div>
   )
 }
