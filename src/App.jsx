@@ -1,4 +1,5 @@
 import ChannelSection from "./components/ChannelSection"
+import Footer from "./components/Footer"
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import SocialLinks from "./components/SocialLinks"
@@ -21,6 +22,7 @@ function App() {
       </main>
 
       <SocialLinks />
+      <Footer />
     </div>
   )
 }
