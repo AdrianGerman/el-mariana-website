@@ -1,19 +1,27 @@
-/* eslint-disable no-unused-vars */
+import { useChannelVideos } from "../hooks/useChannelVideos"
 import VideoCard from "./VideoCard"
 
 export default function ChannelSection({ channel, index }) {
+  const isEven = index % 2 === 0
   const isTwitch = channel.platform === "twitch"
+
+  const { videos: liveVideos, loading } = useChannelVideos(
+    channel.platform === "youtube" ? channel.handle : null,
+  )
+
+  const videos = liveVideos.length > 0 ? liveVideos : channel.videos
 
   return (
     <section
-      className="relative py-16 px-6 border-t border-white/5 overflow-hidden"
       id={channel.id}
+      className="relative py-16 px-6 border-t border-white/5 overflow-hidden"
     >
       <div
         className="absolute top-0 bottom-0 w-1 opacity-30"
         style={{
           background: `linear-gradient(to bottom, ${channel.color}, transparent)`,
-          left: 0,
+          left: isEven ? 0 : "auto",
+          right: isEven ? "auto" : 0,
         }}
       />
 
@@ -21,12 +29,15 @@ export default function ChannelSection({ channel, index }) {
         className="absolute -top-32 opacity-5 w-96 h-96 rounded-full blur-3xl pointer-events-none"
         style={{
           background: channel.color,
-          left: "-5rem",
+          left: isEven ? "-5rem" : "auto",
+          right: isEven ? "auto" : "-5rem",
         }}
       />
 
       <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-10">
+        <div
+          className={`flex flex-col md:flex-row items-start md:items-center gap-6 mb-10 ${!isEven ? "md:flex-row-reverse" : ""}`}
+        >
           <div
             className="shrink-0 w-20 h-20 rounded-2xl flex items-center justify-center text-4xl"
             style={{
@@ -86,11 +97,30 @@ export default function ChannelSection({ channel, index }) {
         </div>
 
         <div>
-          <h3 className="text-xs uppercase tracking-widest text-zinc-500 mb-4 font-semibold">
-            {isTwitch ? "Últimos streams destacados" : "Videos recientes"}
-          </h3>
+          <div className="flex items-center gap-3 mb-4">
+            <h3 className="text-xs uppercase tracking-widest text-zinc-500 font-semibold">
+              {isTwitch ? "Últimos streams destacados" : "Videos recientes"}
+            </h3>
+            {loading && channel.platform === "youtube" && (
+              <div className="flex gap-1">
+                <span
+                  className="w-1 h-1 bg-zinc-600 rounded-full animate-bounce"
+                  style={{ animationDelay: "0ms" }}
+                />
+                <span
+                  className="w-1 h-1 bg-zinc-600 rounded-full animate-bounce"
+                  style={{ animationDelay: "150ms" }}
+                />
+                <span
+                  className="w-1 h-1 bg-zinc-600 rounded-full animate-bounce"
+                  style={{ animationDelay: "300ms" }}
+                />
+              </div>
+            )}
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {channel.videos.map((video, i) => (
+            {videos.map((video, i) => (
               <VideoCard key={i} video={video} accentColor={channel.color} />
             ))}
           </div>
