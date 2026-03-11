@@ -1,4 +1,5 @@
 import { useChannelVideos } from "../hooks/useChannelVideos"
+import { useTwitchData } from "../hooks/useTwitchData"
 import VideoCard from "./VideoCard"
 
 function LoadingDots() {
@@ -28,11 +29,27 @@ export default function ChannelSection({ channel, index }) {
     videos: liveVideos,
     shorts,
     subscribers: liveSubscribers,
-    loading,
+    loading: ytLoading,
   } = useChannelVideos(channel.platform === "youtube" ? channel.handle : null)
 
-  const videos = liveVideos.length > 0 ? liveVideos : []
-  const subscribers = liveSubscribers ?? channel.subscribers ?? ""
+  const {
+    videos: twitchVideos,
+    clips,
+    followers,
+    loading: twitchLoading,
+  } = useTwitchData(channel.platform === "twitch" ? channel.handle : null)
+
+  const loading = channel.platform === "twitch" ? twitchLoading : ytLoading
+  const videos =
+    channel.platform === "twitch"
+      ? twitchVideos
+      : liveVideos.length > 0
+        ? liveVideos
+        : []
+  const subscribers =
+    channel.platform === "twitch"
+      ? followers
+      : (liveSubscribers ?? channel.subscribers ?? "")
 
   return (
     <section
@@ -160,6 +177,40 @@ export default function ChannelSection({ channel, index }) {
                 ))}
           </div>
         </div>
+
+        {channel.platform === "twitch" && (clips.length > 0 || loading) && (
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-xs uppercase tracking-widest text-zinc-500 font-semibold">
+                Clips más vistos
+              </h3>
+              {loading && <LoadingDots />}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {loading
+                ? [0, 1, 2].map((i) => (
+                    <div
+                      key={i}
+                      className="rounded-lg overflow-hidden border border-white/5 animate-pulse"
+                      style={{ background: "rgba(255,255,255,0.03)" }}
+                    >
+                      <div className="aspect-video bg-zinc-800" />
+                      <div className="p-3 space-y-2">
+                        <div className="h-3 bg-zinc-800 rounded w-3/4" />
+                        <div className="h-3 bg-zinc-800 rounded w-1/3" />
+                      </div>
+                    </div>
+                  ))
+                : clips.map((clip, i) => (
+                    <VideoCard
+                      key={i}
+                      video={clip}
+                      accentColor={channel.color}
+                    />
+                  ))}
+            </div>
+          </div>
+        )}
 
         {channel.platform === "youtube" && (shorts.length > 0 || loading) && (
           <div>
