@@ -1,42 +1,5 @@
 import { useState, useEffect } from "react"
-
-const CLIENT_ID = import.meta.env.VITE_TWITCH_CLIENT_ID
-const TOKEN = import.meta.env.VITE_TWITCH_TOKEN
-
-function useIsLive(username) {
-  const [stream, setStream] = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    if (!username || !CLIENT_ID || !TOKEN) return
-
-    const check = async () => {
-      try {
-        const res = await fetch(
-          `https://api.twitch.tv/helix/streams?user_login=${username}`,
-          {
-            headers: {
-              "Client-ID": CLIENT_ID,
-              Authorization: `Bearer ${TOKEN}`,
-            },
-          },
-        )
-        const data = await res.json()
-        setStream(data.data?.[0] || null)
-      } catch {
-        setStream(null)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    check()
-    const interval = setInterval(check, 2 * 60 * 1000)
-    return () => clearInterval(interval)
-  }, [username])
-
-  return { stream, loading }
-}
+import { useIsLive } from "../hooks/useIsLive"
 
 function formatViewers(n) {
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`
@@ -63,7 +26,8 @@ function LiveTopBar({ stream }) {
       rel="noopener noreferrer"
       className="fixed top-0 left-0 right-0 z-60 flex items-center justify-center gap-4 px-6 py-1.5 group"
       style={{
-        background: "linear-gradient(90deg, #3b1d8a, #6d28d9, #3b1d8a)",
+        // background: "linear-gradient(90deg, #3b1d8a, #6d28d9, #3b1d8a)",
+        background: "#0f0f0f",
         borderBottom: "1px solid rgba(145,70,255,0.25)",
       }}
     >
