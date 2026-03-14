@@ -1,13 +1,16 @@
 import { CHANNELS } from "../constants/data"
 
-export default function Hero() {
+export default function Hero({ isLive = false }) {
   const scrollToChannel = (id) => {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <header
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ paddingTop: isLive ? "32px" : "0" }}
+    >
       <div
         className="absolute inset-0 opacity-10"
         style={{
