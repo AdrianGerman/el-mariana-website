@@ -1,4 +1,5 @@
 import { CHANNELS } from "../constants/data"
+import ChannelCard from "./ChannelCard"
 
 export default function Hero({ isLive = false }) {
   const scrollToChannel = (id) => {
@@ -71,32 +72,11 @@ export default function Hero({ isLive = false }) {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto mb-12">
           {CHANNELS.map((ch) => (
-            <button
+            <ChannelCard
               key={ch.id}
+              channel={ch}
               onClick={() => scrollToChannel(ch.id)}
-              className="group relative rounded-xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:scale-105"
-              style={{
-                background: ch.color + "11",
-                border: `1px solid ${ch.color}33`,
-              }}
-            >
-              <div className="text-2xl mb-2">{ch.icon}</div>
-              <div
-                className="text-white text-xs font-bold leading-tight"
-                style={{ fontFamily: "Barlow Condensed, sans-serif" }}
-              >
-                {ch.platform === "twitch"
-                  ? "Twitch"
-                  : ch.name.replace("ElMariana", "").trim() || "Principal"}
-              </div>
-              <div className="text-zinc-500 text-xs mt-0.5">
-                {ch.subscribers}
-              </div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-xl opacity-60"
-                style={{ background: ch.color }}
-              />
-            </button>
+            />
           ))}
         </div>
 
