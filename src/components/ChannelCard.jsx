@@ -1,4 +1,4 @@
-export default function ChannelCard({ channel, onClick }) {
+export default function ChannelCard({ channel, icon, onClick }) {
   const label =
     channel.platform === "twitch"
       ? "Twitch"
@@ -7,7 +7,7 @@ export default function ChannelCard({ channel, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="group relative rounded-xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:scale-105 overflow-hidden"
+      className="group relative rounded-xl p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:scale-105 overflow-hidden cursor-pointer"
       style={{
         background: channel.color + "11",
         border: `1px solid ${channel.color}33`,
@@ -24,7 +24,7 @@ export default function ChannelCard({ channel, onClick }) {
       )}
 
       <div className="relative z-10">
-        <div className="text-2xl mb-2">{channel.icon}</div>
+        <div className="mb-2">{icon}</div>
         <div
           className="text-white text-xs font-bold leading-tight"
           style={{ fontFamily: "Barlow Condensed, sans-serif" }}

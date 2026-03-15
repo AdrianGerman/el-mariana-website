@@ -1,5 +1,16 @@
 import { CHANNELS } from "../constants/data"
 import ChannelCard from "./ChannelCard"
+import { YoutubeIcon } from "../icons/YoutubeIcon"
+import { GamingIcon } from "../icons/GamingIcon"
+import { VodsIcon } from "../icons/VodsIcon"
+import { TwitchIcon } from "../icons/TwitchIcon"
+
+const CHANNEL_ICONS = {
+  elmariana: <YoutubeIcon width={28} height={28} />,
+  marianajuega: <GamingIcon width={28} height={28} />,
+  elmarianavods: <VodsIcon width={28} height={28} />,
+  twitch: <TwitchIcon width={28} height={28} />,
+}
 
 export default function Hero({ isLive = false }) {
   const scrollToChannel = (id) => {
@@ -75,6 +86,7 @@ export default function Hero({ isLive = false }) {
             <ChannelCard
               key={ch.id}
               channel={ch}
+              icon={CHANNEL_ICONS[ch.id]}
               onClick={() => scrollToChannel(ch.id)}
             />
           ))}
