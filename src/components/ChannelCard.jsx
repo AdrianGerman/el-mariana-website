@@ -26,7 +26,7 @@ export default function ChannelCard({ channel, icon, onClick }) {
       <div className="relative z-10">
         <div className="mb-2">{icon}</div>
         <div
-          className="text-white text-xs font-bold leading-tight"
+          className="text-white text-md font-bold leading-tight"
           style={{ fontFamily: "Barlow Condensed, sans-serif" }}
         >
           {label}
