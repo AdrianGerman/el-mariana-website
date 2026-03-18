@@ -18,7 +18,7 @@ export default function ChannelCard({ channel, icon, onClick }) {
           src={channel.logo}
           alt=""
           aria-hidden
-          className="absolute -bottom-4 -right-4 w-30 h-30 rounded-xl object-cover opacity-40 group-hover:opacity-25 transition-opacity duration-300 pointer-events-none"
+          className="absolute -bottom-4 -right-4 w-30 h-30 rounded-xl object-cover opacity-40 group-hover:opacity-25 group-hover:-rotate-10 transition-all duration-300 pointer-events-none"
           style={{ transform: "rotate(-15deg)" }}
         />
       )}
