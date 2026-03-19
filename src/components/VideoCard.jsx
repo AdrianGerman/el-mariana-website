@@ -55,7 +55,7 @@ export default function VideoCard({ video, accentColor }) {
         <p
           className="text-white text-sm font-semibold leading-snug group-hover:text-purple-400 transition-colors line-clamp-2"
           style={{
-            fontFamily: "Barlow Condensed, sans-serif",
+            fontFamily: "Bebas Neue, sans-serif",
             letterSpacing: "0.01em",
           }}
         >

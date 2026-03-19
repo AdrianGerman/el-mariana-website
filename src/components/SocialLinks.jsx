@@ -9,7 +9,7 @@ export default function SocialLinks() {
         </p>
         <h2
           className="text-4xl font-black text-white uppercase mb-10"
-          style={{ fontFamily: "Barlow Condensed, sans-serif" }}
+          style={{ fontFamily: "Bebas Neue, sans-serif" }}
         >
           Redes Sociales
         </h2>

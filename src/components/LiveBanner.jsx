@@ -36,7 +36,7 @@ function LiveTopBar({ stream }) {
       <span
         className="text-xs font-black tracking-widest px-2 py-0.5 rounded"
         style={{
-          fontFamily: "Barlow Condensed, sans-serif",
+          fontFamily: "Bebas Neue, sans-serif",
           background: "rgba(239,68,68,0.15)",
           color: "#ef4444",
           border: "1px solid rgba(239,68,68,0.3)",
@@ -51,7 +51,7 @@ function LiveTopBar({ stream }) {
       <span
         className="text-zinc-300 text-xs hidden sm:inline truncate max-w-sm group-hover:text-white transition-colors"
         style={{
-          fontFamily: "Barlow Condensed, sans-serif",
+          fontFamily: "Bebas Neue, sans-serif",
           letterSpacing: "0.03em",
         }}
       >
@@ -73,7 +73,7 @@ function LiveTopBar({ stream }) {
       <span
         className="ml-2 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-lg shrink-0 transition-all duration-200 group-hover:scale-105"
         style={{
-          fontFamily: "Barlow Condensed, sans-serif",
+          fontFamily: "Bebas Neue, sans-serif",
           background: "#9146FF",
           color: "white",
           letterSpacing: "0.1em",
@@ -131,7 +131,7 @@ function LiveToast({ stream, onDismiss }) {
         <RecDot size="lg" />
         <span
           className="text-white font-black text-sm uppercase tracking-widest flex-1"
-          style={{ fontFamily: "Barlow Condensed, sans-serif" }}
+          style={{ fontFamily: "Bebas Neue, sans-serif" }}
         >
           ElMariana · En vivo
         </span>
@@ -146,7 +146,7 @@ function LiveToast({ stream, onDismiss }) {
       <div className="px-4 pb-4">
         <p
           className="text-zinc-200 text-sm font-semibold leading-snug mb-3"
-          style={{ fontFamily: "Barlow Condensed, sans-serif" }}
+          style={{ fontFamily: "Bebas Neue, sans-serif" }}
         >
           {stream.title}
         </p>
@@ -167,7 +167,7 @@ function LiveToast({ stream, onDismiss }) {
             className="text-xs font-black px-3 py-1.5 rounded-lg text-white transition-all hover:scale-105 active:scale-95"
             style={{
               background: "#9146FF",
-              fontFamily: "Barlow Condensed, sans-serif",
+              fontFamily: "Bebas Neue, sans-serif",
               letterSpacing: "0.08em",
             }}
           >

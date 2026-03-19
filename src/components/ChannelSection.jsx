@@ -98,7 +98,7 @@ export default function ChannelSection({ channel, index }) {
             <div className="flex items-center gap-3 flex-wrap">
               <h2
                 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "Barlow Condensed, sans-serif" }}
+                style={{ fontFamily: "Bebas Neue, sans-serif" }}
               >
                 {channel.name}
               </h2>
@@ -138,7 +138,7 @@ export default function ChannelSection({ channel, index }) {
             className="shrink-0 px-6 py-3 rounded-lg font-bold text-sm uppercase tracking-widest transition-all duration-200 hover:scale-105 active:scale-95 text-white"
             style={{
               background: channel.color,
-              fontFamily: "Barlow Condensed, sans-serif",
+              fontFamily: "Bebas Neue, sans-serif",
               letterSpacing: "0.12em",
             }}
           >
