@@ -13,13 +13,8 @@ export default function App() {
   return (
     <div
       className="min-h-screen"
-      style={{ background: "#0A0A0A", fontFamily: "Barlow, sans-serif" }}
+      style={{ background: "#0A0A0A", fontFamily: "DM Sans, sans-serif" }}
     >
-      <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-      />
-
       {isLive && <LiveBanner />}
       <Navbar isLive={isLive} />
       <Hero isLive={isLive} />
