@@ -65,17 +65,24 @@ export default function Hero({ isLive = false }) {
           </span>
         </div>
 
-        <h1
-          className="text-[clamp(4rem,14vw,11rem)] font-black leading-none uppercase text-white mb-4"
-          style={{
-            fontFamily: "Lilita One, cursive",
-            textShadow:
-              "16px 20px 10px rgb(0,0,0), 6px 6px 0px rgb(0,0,0), 9px 9px 0px rgb(0,0,0)",
-            letterSpacing: "-0.07em",
-          }}
-        >
-          El<span style={{ color: "#8B3FDB" }}>Mariana</span>
-        </h1>
+        <div className="flex items-center justify-center gap-6 mb-4">
+          <img
+            src="/logo.avif"
+            alt="ElMariana"
+            className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-[10px_10px_5px_black]"
+          />
+          <h1
+            className="text-[clamp(4rem,14vw,11rem)] font-black leading-none uppercase text-white mb-4"
+            style={{
+              fontFamily: "Lilita One, cursive",
+              textShadow:
+                "16px 20px 10px rgb(0,0,0), 6px 6px 0px rgb(0,0,0), 9px 9px 0px rgb(0,0,0)",
+              letterSpacing: "-0.07em",
+            }}
+          >
+            El<span style={{ color: "#8B3FDB" }}>Mariana</span>
+          </h1>
+        </div>
 
         <p className="text-zinc-400 text-lg md:text-xl max-w-xl mx-auto mb-12 font-light">
           30M+ seguidores. 4 canales. Un solo objetivo:
