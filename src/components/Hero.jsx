@@ -68,8 +68,10 @@ export default function Hero({ isLive = false }) {
         <h1
           className="text-[clamp(4rem,14vw,11rem)] font-black leading-none uppercase text-white mb-4"
           style={{
-            fontFamily: "Barlow Condensed, sans-serif",
-            letterSpacing: "-0.02em",
+            fontFamily: "Lilita One, cursive",
+            textShadow:
+              "16px 20px 10px rgb(0,0,0), 6px 6px 0px rgb(0,0,0), 9px 9px 0px rgb(0,0,0)",
+            letterSpacing: "-0.07em",
           }}
         >
           El<span style={{ color: "#8B3FDB" }}>Mariana</span>
