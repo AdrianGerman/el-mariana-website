@@ -54,7 +54,7 @@ export default function ChannelSection({ channel, index }) {
   return (
     <section
       id={channel.id}
-      className="relative py-16 px-6 border-t border-white/5 overflow-hidden"
+      className="relative py-16 px-6 border-t border-white/5 overflow-hidden animate-fade-in-up"
     >
       <div
         className="absolute top-0 bottom-0 w-1 opacity-30"

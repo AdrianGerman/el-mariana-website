@@ -2,7 +2,7 @@ import { SOCIAL_LINKS } from "../constants/data"
 
 export default function SocialLinks() {
   return (
-    <section className="py-20 px-6 border-t border-white/5">
+    <section className="py-20 px-6 border-t border-white/5 animate-fade-in-down">
       <div className="max-w-3xl mx-auto text-center">
         <p className="text-xs uppercase tracking-widest text-zinc-600 mb-3 font-semibold">
           Encuéntralo también en

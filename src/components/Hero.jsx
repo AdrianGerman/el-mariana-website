@@ -20,7 +20,7 @@ export default function Hero({ isLive = false }) {
 
   return (
     <header
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden animate-fade-in-down"
       style={{ paddingTop: isLive ? "32px" : "0" }}
     >
       <div

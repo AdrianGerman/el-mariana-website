@@ -24,7 +24,7 @@ function LiveTopBar({ stream }) {
       href="https://www.twitch.tv/elmariana"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed top-0 left-0 right-0 z-60 flex items-center justify-center gap-4 px-6 py-1.5 group"
+      className="fixed top-0 left-0 right-0 z-60 flex items-center justify-center gap-4 px-6 py-1.5 group animate-fade-in-up"
       style={{
         // background: "linear-gradient(90deg, #3b1d8a, #6d28d9, #3b1d8a)",
         background: "#0f0f0f",

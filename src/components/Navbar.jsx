@@ -17,7 +17,7 @@ export default function Navbar({ isLive = false }) {
 
   return (
     <nav
-      className="fixed left-0 right-0 z-50 transition-all duration-300"
+      className="fixed left-0 right-0 z-50 transition-all duration-300 animate-fade-in-up"
       style={{
         top: isLive ? "32px" : "0px",
         background: scrolled ? "rgba(10,10,10,0.95)" : "transparent",
